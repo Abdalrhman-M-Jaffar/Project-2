@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mortgage repayment calculator main</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon-32x32.png">
+</head>
+<body>
+
+    <div class="con">
+
+        <div class="con-style">
+
+            <div class="right-section">
+
+                <!-- Head Text -->
+                <div class="app-name-with-clear">
+                    <div class="app-name">Mortgage Calculator</div>
+                    <div class="clear-all" id="clear" onclick="clearAll()">Clear All</div>
+                </div>
+                
+                <!-- inputs -->
+
+                <!-- Mortgage Amount -->
+                <div class="mortgage-amount-title">Mortgage Amount</div>
+                <div class="mortgage-amount" id="mortgage-amount">
+                    <div class="As-sign" id="As-sign">£</div>
+                    <input type="number" class="mortgage-amount-text-box" id="mortgage-amount-text-box" inputmode="numeric" onkeyup="notEmptyBoxAmout();">
+                </div>
+                <div id="Amount-error">This field is required</div>
+
+                <!-- Term - Rate -->
+                <div class="term-rate-con">
+
+                    <div class="term">
+                        <div class="mortgage-term-title">Mortgage Term</div>
+                        <div class="mortgage-term">
+                            <input type="number" class="mortgage-term-text-box" id="mortgage-term-text-box" inputmode="numeric" onkeyup="notEmptyBoxTerm();">
+                            <div class="years-sign" id="years-sign">years</div>
+                        </div>
+                        <div id="term-error">This field is required</div>
+                    </div>
+
+                    <div class="rate">
+                        <div class="interest-rate-title">Interest Rate</div>
+                        <div class="interest-rate">
+                            <input type="number" class="interest-rate-text-box" id="interest-rate-text-box" inputmode="numeric" onkeyup="notEmptyBoxRate()">
+                            <div class="B-sign" id="B-sign">%</div>
+                        </div>
+                        <div id="rate-error">This field is required</div>
+                    </div>
+
+                </div>
+
+                <!-- Mortgage Type -->
+                <div class="mortgage-type-con">
+
+                    <div class="mortgage-type-title">Mortgage Type</div>
+
+                    <label for="repayment" class="repayment-type" id="repayment-type">
+                        <input type="radio" name="type" id="repayment" onclick="repaymentLabelStyle();notEmptyBoxType();">
+                        <div class="explain-type-text">Repayment</div>
+                    </label>
+
+                    <label for="interest" class="interest-type" id="interest-type">
+                        <input type="radio" name="type" id="interest" onclick="interestLabelStyle();notEmptyBoxType();">
+                        <div class="explain-type-text">Interest Only</div>
+                    </label>
+
+                    <div id="type-error">This field is required</div>
+
+                </div>
+
+                <button class="Calculate-btn" onclick="submit();"><img src="images/icon-calculator.svg" class="img-btn"> Calculate Repayments</button>
+
+            </div>
+            
+            <div class="main-left-section">
+
+                <div class="left-section">
+
+                    <img src="images/illustration-empty.svg" class="empty-calc-img">
+                    <div class="left-sec-head-text">Results shown here</div>
+                    <div class="guide-text">Complete the form and click “calculate repayments” to see what your monthly repayments would be.</div>
+
+                </div>
+
+                <div class="left-section-calc" id="left-section-calc">
+
+                    <div class="left-section-head-text">Your results</div>
+                    <div class="explain-result">Your results are shown below based on the information you provided. To adjust the results, edit the form and click “calculate repayments” again.</div>
+
+                    <div class="results-con">
+
+                        <div class="results-con-style">
+
+                            <div class="result-head-text">Your monthly repayments</div>
+                            <div id="month-payment"></div>  
+                            <div class="line"></div>  
+                            <div class="result-total-text">Total you'll repay over the term</div>
+                            <div id="total-payment"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+    <script src="control.js"></script>
+
+</body>
+</html>
+
+<body>
